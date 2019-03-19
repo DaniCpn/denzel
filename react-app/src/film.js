@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
 
-/*class Film extends React.Component {
-    render() {
-        return (
-            <h1>Film Test</h1>
-        );
-    }
-}
-export default Film;
-
-import React, { Component } from 'react';*/
-
-
-
 class Film extends Component {
 
     constructor(props) {

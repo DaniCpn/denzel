@@ -10,9 +10,6 @@ const CONNECTION_URL = "mongodb+srv://Dani:voiture@empire-sample-i7cw5.mongodb.n
 //const CONNECTION_URL = "mongodb://Dani:voiture@empire-sample-shard-00-00-i7cw5.mongodb.net:27017,empire-sample-shard-00-01-i7cw5.mongodb.net:27017,empire-sample-shard-00-02-i7cw5.mongodb.net:27017/test?ssl=true&replicaSet=empire-sample-shard-0&authSource=admin&retryWrites=true"
 const DATABASE_NAME = "empire-sample";
 
-
-//dvUv9xun_TH9ZBh
-
 var myMovies;
 
 async function sb() {
@@ -49,7 +46,25 @@ async function sb() {
         })
     })
 
-    app.get("/movie/populate", (request, response) => {
+    app.get("/movie/popular", (request, response) => {
+        collection.find({}).toArray((error, result) => {
+            if (error) {
+                return response.status(500).send(error);
+            }
+            response.send(result);
+        })
+    })
+
+    app.get("/movie/upcoming", (request, response) => {
+        collection.find({}).toArray((error, result) => {
+            if (error) {
+                return response.status(500).send(error);
+            }
+            response.send(result);
+        })
+    })
+
+    app.get("/movie/top_rated", (request, response) => {
         collection.find({}).toArray((error, result) => {
             if (error) {
                 return response.status(500).send(error);
